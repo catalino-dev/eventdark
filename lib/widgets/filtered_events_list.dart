@@ -33,12 +33,12 @@ class FilteredEventsList extends StatelessWidget {
             ));
           },
           onTap: () async {
-            final removedTodo = await Navigator.of(context).push(
+            final removedEvent = await Navigator.of(context).push(
               MaterialPageRoute(builder: (_) {
                 return DetailsScreen(id: event.id);
               }),
             );
-            if (removedTodo != null) {
+            if (removedEvent != null) {
               Scaffold.of(context).showSnackBar(
                 DeleteEventSnackBar(
                   event: event,

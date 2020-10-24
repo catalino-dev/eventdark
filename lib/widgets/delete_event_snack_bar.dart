@@ -9,11 +9,11 @@ class DeleteEventSnackBar extends SnackBar {
   }) : super(
         key: key,
         content: Text(
-          'Deleted ${event.eventDate}',
-          maxLines: 1,
+          'Deleted event ${event.name} successfully.',
+          maxLines: 2,
           overflow: TextOverflow.ellipsis,
         ),
-        duration: Duration(seconds: 2),
+        duration: Duration(seconds: 5),
         action: SnackBarAction(
           label: 'Undo',
           onPressed: onUndo,

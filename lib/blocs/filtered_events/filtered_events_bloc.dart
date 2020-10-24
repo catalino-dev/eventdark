@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:eventdark/utils/datetime_extension.dart';
 import 'package:eventdark/blocs/blocs.dart';
 import 'package:eventdark/blocs/events/events.dart';
 import 'package:eventdark/blocs/filtered_events/filtered_events.dart';

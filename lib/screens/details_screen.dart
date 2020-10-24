@@ -16,7 +16,7 @@ class DetailsScreen extends StatelessWidget {
       builder: (context, state) {
         final Event event = (state as EventsLoaded)
             .events
-            .firstWhere((todo) => todo.id == id, orElse: () => null);
+            .firstWhere((event) => event.id == id, orElse: () => null);
         return Scaffold(
           appBar: AppBar(
             title: Text('Event Details'),
@@ -87,7 +87,6 @@ class DetailsScreen extends StatelessWidget {
             tooltip: 'Edit Event',
             child: Icon(Icons.edit),
             onPressed: event == null ? null : () {
-              print('Edit Event ------------- event: $event');
               return Navigator.pushNamed(context, '/editEvent', arguments: event);
             },
           ),

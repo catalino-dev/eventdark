@@ -1,13 +1,15 @@
 import 'dart:async';
 
-import 'models/models.dart';
+import 'package:eventdark/repositories/events/data/models/event.dart';
 
 abstract class EventsRepository {
-  Future<void> addNewEvent(Event todo);
+  Future<void> addNewEvent(Event event);
 
-  Future<void> deleteEvent(Event todo);
+  Future<void> deleteEvent(Event event);
 
   Stream<List<Event>> events();
 
-  Future<void> updateEvent(Event todo);
+  Future<void> updateEvent(Event event);
+
+  Future<void> exportToCsv();
 }

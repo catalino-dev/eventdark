@@ -14,7 +14,18 @@ class ExtraActions extends StatelessWidget {
             onSelected: (action) {
               switch (action) {
                 case ExtraAction.exportToCsv:
-                  BlocProvider.of<EventsBloc>(context).add(ExportToCsvTrigger());
+                  BlocProvider.of<EventsBloc>(context)
+                      .add(ExportToCsvTrigger());
+                  Scaffold.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(
+                        'Exported csv file successfully. Check your downloads folder.',
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      duration: Duration(seconds: 5),
+                    ),
+                  );
                   break;
               }
             },

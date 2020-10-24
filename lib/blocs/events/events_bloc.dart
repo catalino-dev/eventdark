@@ -34,8 +34,8 @@ class EventsBloc extends Bloc<EventsEvent, EventsState> {
   Stream<EventsState> _mapLoadEventsToState() async* {
     _eventsSubscription?.cancel();
     _eventsSubscription = _eventsRepository.events().listen(
-          (events) => add(EventsUpdated(events)),
-        );
+      (events) => add(EventsUpdated(events)),
+    );
   }
 
   Stream<EventsState> _mapAddEventToState(AddEvent event) async* {
@@ -50,28 +50,8 @@ class EventsBloc extends Bloc<EventsEvent, EventsState> {
     _eventsRepository.deleteEvent(event.event);
   }
 
-  Stream<EventsState> _mapToggleAllToState() async* {
-    final currentState = state;
-    if (currentState is EventsLoaded) {
-      final allComplete = currentState.events.every((event) => event.complete);
-      final List<Event> updatedEvents = currentState.events
-          .map((event) => event.copyWith(complete: !allComplete))
-          .toList();
-      updatedEvents.forEach((updatedEvent) {
-        _eventsRepository.updateEvent(updatedEvent);
-      });
-    }
-  }
-
   Stream<EventsState> _mapCsvExportToState() async* {
-    final currentState = state;
-    if (currentState is EventsLoaded) {
-      final List<Event> completedEvents =
-          currentState.events.where((event) => event.complete).toList();
-      completedEvents.forEach((completedEvent) {
-        _eventsRepository.deleteEvent(completedEvent);
-      });
-    }
+    _eventsRepository.exportToCsv();
   }
 
   Stream<EventsState> _mapEventsUpdateToState(EventsUpdated event) async* {

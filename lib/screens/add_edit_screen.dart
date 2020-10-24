@@ -81,7 +81,6 @@ class _AddEditScreenState extends State<AddEditScreen> {
                 EventColor.blue, EventColor.green, EventColor.sky,
                 EventColor.sage, EventColor.pink, EventColor.lavender
               ], onColorTap: (color) {
-                print('----------------------------onColorTaponColorTap_color:  $color');
                 setState(() {
                   _color = color;
                 });
@@ -96,9 +95,6 @@ class _AddEditScreenState extends State<AddEditScreen> {
         onPressed: () {
           if (_formKey.currentState.validate()) {
             _formKey.currentState.save();
-            print('_name:  $_name');
-            print('_color:  $_color');
-            print('_event:  ${_event.color}');
             widget.onSave(_event.id, _event.eventDate, _name, _color);
             Navigator.popAndPushNamed(context, '/', arguments: _event);
           }

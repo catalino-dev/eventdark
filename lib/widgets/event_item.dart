@@ -1,6 +1,6 @@
+import 'package:eventdark/models/event_color.dart';
 import 'package:eventdark/repositories/repositories.dart';
 import 'package:eventdark/utils/datetime_extension.dart';
-import 'package:eventdark/models/event_color.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
@@ -77,12 +77,6 @@ class EventItem extends StatelessWidget {
       ),
       secondaryActions: [
         IconSlideAction(
-          caption: "Edit",
-          color: Colors.white,
-          icon: Icons.edit,
-          onTap: (){},
-        ),
-        IconSlideAction(
           caption: "Delete",
           color: event.color.toMaterialColor(),
           icon: Icons.edit,
@@ -90,34 +84,5 @@ class EventItem extends StatelessWidget {
         )
       ],
     );
-    // return Dismissible(
-    //   key: Key('__event_item_${event.id}'),
-    //   onDismissed: onDismissed,
-    //   child: ListTile(
-    //     onTap: onTap,
-    //     leading: Checkbox(
-    //       value: event.complete,
-    //       onChanged: onCheckboxChanged,
-    //     ),
-    //     title: Hero(
-    //       tag: '${event.id}__heroTag',
-    //       child: Container(
-    //         width: MediaQuery.of(context).size.width,
-    //         child: Text(
-    //           event.eventDate.toIso8601String(),
-    //           style: Theme.of(context).textTheme.headline6,
-    //         ),
-    //       ),
-    //     ),
-    //     subtitle: event.name.isNotEmpty
-    //         ? Text(
-    //             event.name,
-    //             maxLines: 1,
-    //             overflow: TextOverflow.ellipsis,
-    //             style: Theme.of(context).textTheme.subtitle1,
-    //           )
-    //         : null,
-    //   ),
-    // );
   }
 }
