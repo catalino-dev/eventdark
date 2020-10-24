@@ -1,0 +1,29 @@
+name: eventdark
+description: A new exciting eventdark to manage your calendar events
+
+# The following line prevents the package from being accidentally published to
+# pub.dev using `pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^6.0.6
+  equatable: ^1.2.5
+  collection: ^1.14.13
+  intl: ^0.16.1
+  cloud_firestore: ^0.14.1+3
+  rxdart: ^0.24.1
+  firebase_core: ^0.5.0+1
+  table_calendar: ^2.3.0
+  google_fonts: ^1.1.1
+  flutter_slidable: ^0.5.7
+  custom_radio_grouped_button: ^1.0.6+1
+
+flutter:
+  uses-material-design: true

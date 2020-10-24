@@ -1,0 +1,1 @@
+enum EventGroupBy { selected, all }
