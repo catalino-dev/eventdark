@@ -89,16 +89,21 @@ class _AddEditScreenState extends State<AddEditScreen> {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        tooltip: isEditing ? 'Save changes' : 'Add Event',
-        child: Icon(isEditing ? Icons.check : Icons.add),
-        onPressed: () {
-          if (_formKey.currentState.validate()) {
-            _formKey.currentState.save();
-            widget.onSave(_event.id, _event.eventDate, _name, _color);
-            Navigator.popAndPushNamed(context, '/', arguments: _event);
-          }
-        },
+      floatingActionButton: SizedBox(
+        width: 180.0,
+        height: 50.0,
+        child: FloatingActionButton.extended(
+          tooltip: isEditing ? 'Update Event' : 'Add Event',
+          icon: Icon(isEditing ? Icons.check : Icons.add),
+          label: Text(isEditing ? 'Update Event' : 'Add Event'),
+          onPressed: () {
+            if (_formKey.currentState.validate()) {
+              _formKey.currentState.save();
+              widget.onSave(_event.id, _event.eventDate, _name, _color);
+              Navigator.popAndPushNamed(context, '/', arguments: _event);
+            }
+          },
+        ),
       ),
     );
   }
